@@ -30,3 +30,5 @@ Thumbs.db
 
 # Local database files
 postgres_data/
+
+ROADMAP.md

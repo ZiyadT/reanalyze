@@ -52,8 +52,12 @@ alembic current
 
 Create future migrations with `alembic revision --autogenerate -m "description"`
 and review them before applying; Alembic does not autogenerate trigger changes.
-The initial migration covers embedding configurations only. Chunk embeddings,
-the vector extension, and other tables will be introduced in later migrations.
+The current migrations create embedding configurations, users, workspaces,
+documents, workspace-document membership, document chunks, chunk embeddings,
+and saved reports.
+The workspace migration also uses a database trigger to remove current
+document links when a workspace is archived; Alembic will not generate that
+trigger automatically.
 
 To run the PostgreSQL migration and constraint tests, set `TEST_DATABASE_URL`
 to a PostgreSQL database on which the test user can create schemas, then run
